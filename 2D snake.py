@@ -4,7 +4,7 @@ import time
 import random
 
 rows, cols = 10, 10    # field (grid) size. i is row, j is column
-speed = 10
+speed = 2000
 timer = 0
 direction = "l"
 snake = [[5,4],[5,5],[5,6]]
@@ -51,24 +51,21 @@ show_field(rows,cols,snake,apple)
 
 input("Press 'Enter' to start the game")
 
-# it works until here
-
 while True:
-    #timer += 1
+    timer += 1
 
-    #if keyboard.is_pressed("l") and direction != "r":
-    #    direction = "l"  
-    #if keyboard.is_pressed("r") and direction != "l":
-    #    direction = "r"
-    #if keyboard.is_pressed("u") and direction != "d":
-    #    direction = "u"
-    #if keyboard.is_pressed("d") and direction != "u":
-    #    direction = "d"
+    if keyboard.is_pressed("left") and direction != "r":
+        direction = "l"  
+    if keyboard.is_pressed("right") and direction != "l":
+        direction = "r"
+    if keyboard.is_pressed("up") and direction != "d":
+        direction = "u"
+    if keyboard.is_pressed("down") and direction != "u":
+        direction = "d"
 
-    #if timer == speed:   # how to slow down a snake. else: feed it.
-    #    timer = 0
+    if timer == speed:   # how to slow down a snake. else: feed it.
+        timer = 0
 
-        direction = input("choose l, r, u, d ")
         if direction == "l":
             b -= 1
         if direction == "r":
@@ -100,4 +97,4 @@ while True:
 
         show_field(rows,cols,snake,apple)
 
-        #time.sleep(0.1)
+        time.sleep(0.1)
